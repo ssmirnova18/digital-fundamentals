@@ -1,0 +1,19 @@
+#!/bin/bash
+
+adults=0
+minors=0
+
+for file in $(ls $1/*.txt)
+do
+    age=$(grep "Возраст:" $file | cut -d ":" -f2)
+    
+    if [ $age -ge 18 ]
+    then
+        adults=$((adults + 1))
+    else
+        minors=$((minors + 1))
+    fi
+done
+
+echo "Совершеннолетние: $adults"
+echo "Несовершеннолетние: $minors"
