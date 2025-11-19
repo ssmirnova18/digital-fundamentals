@@ -1,0 +1,21 @@
+#!/bin/bash
+
+for i in $(ls $1)
+do
+      for v in $(cat $1%i)
+      do
+           age=$(echo $v | cut -d ":" -f2)
+           if [ $age -ge 18]
+           then 
+                   kid=$((kid+1))
+                    #echo $kid
+                    #echo $age
+           else
+                  notkid=$((notkid+1))
+            fi
+             #echo $kid
+       done
+ 
+done
+echo $kid
+echo $notkid
